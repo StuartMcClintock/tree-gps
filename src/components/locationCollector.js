@@ -23,7 +23,7 @@ export default class LocationCollector extends Component {
 
   addCoord = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      const newList = this.state.data.concat({ latitude: position.coords.latitude, longitude: position.coords.longitude}); // concat / unshift
+      const newList = this.state.data.unshift({ latitude: position.coords.latitude, longitude: position.coords.longitude});
       this.setState({data: newList})
     });
   }

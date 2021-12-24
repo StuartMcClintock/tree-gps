@@ -23,14 +23,15 @@ export default class LocationCollector extends Component {
 
   addCoord = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      const newList = this.state.data.unshift({ latitude: position.coords.latitude, longitude: position.coords.longitude});
-      console.log(newList);
+      const newList = this.state.data;
+      newList.unshift({ latitude: position.coords.latitude, longitude: position.coords.longitude});
       this.setState({data: newList})
     });
   }
 
   removeCoord = () => {
-    this.setState({data: this.state.data.splice(1)})
+    const newList = this.state.data.splice(1);
+    this.setState({data: newList})
   }
 
   render() {
@@ -42,7 +43,7 @@ export default class LocationCollector extends Component {
         <br />
         {this.state.data.map(data => <p>Your latitude is: {data.latitude}, longitude: {data.longitude}</p>)}
         <br />
-        <CSVLink data={this.state.data} headers={this.headers}>
+        <CSVLink data={this.state.data} headers={this.headers} filename={"coordinate-list.csv"}>
           Download CSV
         </CSVLink>
       </div>

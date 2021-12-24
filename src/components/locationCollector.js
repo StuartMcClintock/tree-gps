@@ -31,14 +31,14 @@ export default class LocationCollector extends Component {
   render() {
     return (
       <div>
-        <h2>Tree GPS</h2>
+        <h2>Tree Location Logger</h2>
         <button onClick={() => this.addCoord()}>Add Current Location</button>
         <button onClick={() => this.removeCoord()}>Remove Latest Location</button>
         <br />
-        {this.state.data.map(data => <p>{data.num}. Lat: {data.latitude}, Lon: {data.longitude}</p>)}
+        {this.state.data.map(data => <p>{data.num}. Latitude: {data.latitude}, Longitude: {data.longitude}</p>)}
         <br />
         <CSVLink data={this.state.data} headers={this.headers} filename={"coordinate-list.csv"}>
-          Download CSV
+          Download Data
         </CSVLink>
       </div>
     );

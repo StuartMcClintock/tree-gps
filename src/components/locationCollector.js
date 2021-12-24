@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import { CSVLink } from "react-csv";
 
 export default class LocationCollector extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      latitude: null,
-      longitude: null
+      data: []
     };
   }
 
@@ -15,10 +15,15 @@ export default class LocationCollector extends Component {
       console.log("Longitude is :", position.coords.longitude);
     });
   }
+  headers = [
+    { label: "Latitude", key: "latitude" },
+    { label: "Longitude", key: "longitude" },
+  ];
 
   updateCoords = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      this.setState({latitude: position.coords.latitude, longitude: position.coords.longitude})
+      const newList = this.state.data.concat({ latitude: position.coords.latitude, longitude: position.coords.longitude});
+      this.setState({data: newList})
     });
   }
 
@@ -27,8 +32,11 @@ export default class LocationCollector extends Component {
       <div>
         <h2>GeoLocation</h2>
         <button onClick={() => this.updateCoords()}>Add Location</button>
-        {this.state.latitude ? <h4>Your latitude is {this.state.latitude}</h4> : null}
-        {this.state.longitude ? <h4>Your longitude is {this.state.longitude}</h4> : null}
+        <br />
+        {this.state.data.map(data => <p>Your latitude is: {data.latitude}, longitude: {data.longitude}</p>)}
+        <CSVLink data={this.state.data} headers={this.headers}>
+          Download CSV
+        </CSVLink>
       </div>
     );
   }

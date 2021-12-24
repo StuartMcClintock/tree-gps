@@ -9,13 +9,6 @@ export default class LocationCollector extends Component {
     };
   }
 
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
-    });
-  }
-
   headers = [
     { label: "Latitude", key: "latitude" },
     { label: "Longitude", key: "longitude" },
@@ -37,7 +30,7 @@ export default class LocationCollector extends Component {
   render() {
     return (
       <div>
-        <h2>TreeGPS</h2>
+        <h2>Tree GPS</h2>
         <button onClick={() => this.addCoord()}>Add Current Location</button>
         <button onClick={() => this.removeCoord()}>Remove Latest Location</button>
         <br />

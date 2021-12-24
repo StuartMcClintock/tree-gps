@@ -37,9 +37,11 @@ export default class LocationCollector extends Component {
         <br />
         {this.state.data.map(data => <p>{data.num}. Latitude: {data.latitude}, Longitude: {data.longitude}</p>)}
         <br />
-        <CSVLink data={this.state.data} headers={this.headers} filename={"coordinate-list.csv"}>
+        <CSVLink data={this.state.data.slice().reverse()} headers={this.headers} filename={"coordinate-list.csv"}>
           Download Data
         </CSVLink>
+        <br />&nbsp;<br />
+        <br />&nbsp;<br />
       </div>
     );
   }

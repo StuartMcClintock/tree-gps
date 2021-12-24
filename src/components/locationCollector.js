@@ -9,12 +9,12 @@ export default class LocationCollector extends Component {
     };
   }
 
-  /*componentDidMount() {
+  componentDidMount() {
     navigator.geolocation.getCurrentPosition(function(position) {
       console.log("Latitude is :", position.coords.latitude);
       console.log("Longitude is :", position.coords.longitude);
     });
-  }*/
+  }
 
   headers = [
     { label: "Latitude", key: "latitude" },
@@ -23,7 +23,7 @@ export default class LocationCollector extends Component {
 
   addCoord = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      const newList = this.state.data.concat({ latitude: position.coords.latitude, longitude: position.coords.longitude});
+      const newList = this.state.data.concat({ latitude: position.coords.latitude, longitude: position.coords.longitude}); // concat / unshift
       this.setState({data: newList})
     });
   }

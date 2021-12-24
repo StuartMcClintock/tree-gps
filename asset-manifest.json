@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/tree-gps/static/css/main.073c9b0a.css",
-    "main.js": "/tree-gps/static/js/main.c2c80654.js",
+    "main.js": "/tree-gps/static/js/main.81afb2ce.js",
     "static/js/787.e5ec5308.chunk.js": "/tree-gps/static/js/787.e5ec5308.chunk.js",
     "static/media/logo.svg": "/tree-gps/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/tree-gps/index.html",
     "main.073c9b0a.css.map": "/tree-gps/static/css/main.073c9b0a.css.map",
-    "main.c2c80654.js.map": "/tree-gps/static/js/main.c2c80654.js.map",
+    "main.81afb2ce.js.map": "/tree-gps/static/js/main.81afb2ce.js.map",
     "787.e5ec5308.chunk.js.map": "/tree-gps/static/js/787.e5ec5308.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.c2c80654.js"
+    "static/js/main.81afb2ce.js"
   ]
 }

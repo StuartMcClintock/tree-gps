@@ -12,12 +12,13 @@ export default class LocationCollector extends Component {
   headers = [
     { label: "Latitude", key: "latitude" },
     { label: "Longitude", key: "longitude" },
+    { label: "Location #", key: "num" },
   ];
 
   addCoord = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const newList = this.state.data;
-      newList.unshift({ latitude: position.coords.latitude, longitude: position.coords.longitude});
+      newList.unshift({ num: this.state.data.length+1, latitude: position.coords.latitude, longitude: position.coords.longitude});
       this.setState({data: newList})
     });
   }
@@ -34,7 +35,7 @@ export default class LocationCollector extends Component {
         <button onClick={() => this.addCoord()}>Add Current Location</button>
         <button onClick={() => this.removeCoord()}>Remove Latest Location</button>
         <br />
-        {this.state.data.map(data => <p>Your latitude is: {data.latitude}, longitude: {data.longitude}</p>)}
+        {this.state.data.map(data => <p>{data.num}. Lat: {data.latitude}, Lon: {data.longitude}</p>)}
         <br />
         <CSVLink data={this.state.data} headers={this.headers} filename={"coordinate-list.csv"}>
           Download CSV

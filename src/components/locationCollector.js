@@ -10,9 +10,9 @@ export default class LocationCollector extends Component {
   }
 
   headers = [
+    { label: "Location #", key: "num" },
     { label: "Latitude", key: "latitude" },
     { label: "Longitude", key: "longitude" },
-    { label: "Location #", key: "num" },
   ];
 
   addCoord = () => {

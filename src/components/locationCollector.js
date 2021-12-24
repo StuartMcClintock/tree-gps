@@ -29,7 +29,7 @@ export default class LocationCollector extends Component {
   }
 
   removeCoord = () => {
-    this.setState({data: data.splice(1)})
+    this.setState({data: this.state.data.splice(1)})
   }
 
   render() {
